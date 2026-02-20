@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="users-content ion-padding">
+  <ion-spinner *ngIf="(loading$ | async)" name="crescent" class="loading-spinner"></ion-spinner>
+
+  <ion-text color="danger" *ngIf="(error$ | async) as err">
+    <p class="error-msg">{{ err }}</p>
+  </ion-text>
+
+  <ion-card class="users-card" *ngIf="(users$ | async) as users">
+    <ion-card-content>
+    <ion-list lines="none" class="users-list">
+      <ion-item *ngFor="let u of users" class="user-item">
+        <ion-label>
+          <h2>{{ u.firstName }} {{ u.lastName }}</h2>
+          <p>Age: {{ u.age }} • Username: {{ u.username }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+  </ion-card>
+</ion-content>

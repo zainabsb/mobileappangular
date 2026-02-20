@@ -1,0 +1,64 @@
+ion-content {
+  --background: var(--ion-background-color);
+}
+
+ion-content::part(scroll) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-toggle-wrap {
+  position: absolute;
+  top: calc(24px + env(safe-area-inset-top, 0px));
+  right: 16px;
+  z-index: 10;
+}
+
+.login-card {
+  width: min(360px, 92vw);
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.lbl {
+  width: 90px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+}
+
+.inp {
+  flex: 1;
+  --background: var(--ion-background-color);
+  --color: var(--ion-text-color);
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --border-radius: 10px;
+  --highlight-color-focused: var(--ion-color-primary);
+  --highlight-color-valid: var(--ion-color-success);
+  --highlight-color-invalid: var(--ion-color-danger);
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dark-toggle-item {
+  --background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+
+  ion-label {
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+}

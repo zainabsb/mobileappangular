@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary"></ion-toolbar>
+</ion-header>
+
+<ion-content class="home-content">
+  <ion-card class="dashboard-card">
+    <ion-card-header>
+      <ion-card-title class="welcome-text">Welcome</ion-card-title>
+      <ion-card-subtitle class="subtitle">Manage users or add a new one</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <div class="action-buttons">
+      <ion-button color="primary" fill="solid" shape="round" (click)="onShowUsers()">
+        Show Users
+      </ion-button>
+      <ion-button color="success" fill="solid" shape="round" (click)="openNewUser()">
+        New User
+      </ion-button>
+    </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="users-section" *ngIf="showUsers">
+    <div class="section-header">
+      <h3>Users</h3>
+    </div>
+
+    <ion-spinner *ngIf="(loading$ | async)" name="crescent" class="loading-spinner"></ion-spinner>
+
+    <ion-text color="danger" *ngIf="(error$ | async) as err">
+      <p class="error-msg">{{ err }}</p>
+    </ion-text>
+
+    <ion-card class="users-table-card" *ngIf="(users$ | async) as users">
+      <ion-card-content class="users-table-content">
+      <ion-grid class="users-grid">
+        <ion-row class="table-header">
+          <ion-col size="3">First</ion-col>
+          <ion-col size="3">Last</ion-col>
+          <ion-col size="2">Age</ion-col>
+          <ion-col size="4">Username</ion-col>
+        </ion-row>
+
+        <ion-row class="table-row" *ngFor="let u of users">
+          <ion-col size="3">{{ u.firstName }}</ion-col>
+          <ion-col size="3">{{ u.lastName }}</ion-col>
+          <ion-col size="2">{{ u.age }}</ion-col>
+          <ion-col size="4" class="col-username">{{ u.username }}</ion-col>
+        </ion-row>
+      </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="footer-actions">
+    <ion-button class="logout-btn" fill="outline" expand="block" (click)="logout()">Logout</ion-button>
+  </div>
+</ion-content>

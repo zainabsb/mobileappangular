@@ -1,0 +1,42 @@
+<ion-content class="login-bg">
+  <div class="dark-toggle-wrap">
+    <ion-item lines="none" class="dark-toggle-item">
+      <ion-label>Dark mode</ion-label>
+      <ion-toggle [checked]="darkMode" (ionChange)="toggleDarkMode($event)"></ion-toggle>
+    </ion-item>
+  </div>
+  <ion-card class="login-card">
+    <ion-card-content>
+    <div class="row">
+      <div class="lbl">Username</div>
+      <ion-input
+        class="inp"
+        fill="outline"
+        [(ngModel)]="username"
+        placeholder="Enter username">
+      </ion-input>
+    </div>
+
+    <div class="row">
+      <div class="lbl">Password</div>
+      <ion-input
+        class="inp"
+        fill="outline"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Enter password">
+      </ion-input>
+    </div>
+
+    <div class="btn-wrap">
+      <ion-button color="success" expand="block" fill="solid" shape="round" (click)="submit()">
+        Login
+      </ion-button>
+    </div>
+
+    <ion-text color="danger" *ngIf="(error$ | async) as err">
+      <p class="err">{{ err }}</p>
+    </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>New User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="new-user-content ion-padding">
+  <ion-card class="form-card">
+    <ion-card-header class="form-card-header">
+      <ion-card-title>Add new user</ion-card-title>
+      <ion-card-subtitle>Enter the user credentials below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-item lines="none" class="form-item">
+      <ion-input
+        label="First Name"
+        labelPlacement="stacked"
+        fill="outline"
+        placeholder="Enter first name"
+        [(ngModel)]="firstName">
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-input
+        label="Last Name"
+        labelPlacement="stacked"
+        fill="outline"
+        placeholder="Enter last name"
+        [(ngModel)]="lastName">
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-input
+        label="Age"
+        labelPlacement="stacked"
+        fill="outline"
+        type="number"
+        placeholder="Enter age"
+        [(ngModel)]="age">
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-input
+        label="Username"
+        labelPlacement="stacked"
+        fill="outline"
+        placeholder="Enter username"
+        [(ngModel)]="username">
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="form-item">
+      <ion-input
+        label="Password"
+        labelPlacement="stacked"
+        fill="outline"
+        type="password"
+        placeholder="Enter password"
+        [(ngModel)]="password">
+      </ion-input>
+    </ion-item>
+
+    <div class="btn-wrap">
+      <ion-button color="success" expand="block" (click)="save()">Save</ion-button>
+    </div>
+
+    <ion-text color="danger" *ngIf="error">
+      <p class="form-msg">{{ error }}</p>
+    </ion-text>
+
+    <ion-text color="success" *ngIf="success">
+      <p class="form-msg">{{ success }}</p>
+    </ion-text>
+
+    <div class="footer-actions">
+      <ion-button class="back-btn" fill="outline" expand="block" routerLink="/home">Back</ion-button>
+    </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
